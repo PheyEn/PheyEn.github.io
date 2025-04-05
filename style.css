@@ -69,6 +69,44 @@ main {
   margin: auto;
 }
 
+/* Horizontal Cards Section */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.card h2 {
+  font-size: 22px;
+  color: #66ccff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #eeeeee;
+  font-size: 16px;
+}
+
+
 .genre, .game-section, .contact-section {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 25px;
