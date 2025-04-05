@@ -2,22 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Anime Recs</title>
+  <title>Anime Recommendations</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>📺 Anime Recommendations</h1>
+  <header>
+    <h1>Anime <span class="highlight">Recommendations</span></h1>
+    <p class="subtitle">From heart-fluttering romance to thrilling action-packed stories, find your next favorite anime here!</p>
+  </header>
+
   <nav>
-    <a href="index.html">Home</a> |
-    <a href="games.html">Game Recs</a> |
-    <a href="contact.html">Suggest Something</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="anime.html" class="active">Anime</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </nav>
 
-  <h2>1. Your Name</h2>
-  <p>Romantic, emotional, and stunning visuals. Perfect if you like heartache with beauty.</p>
+  <main class="anime-section">
+    <section class="genre">
+      <h2>💖 Romance Anime</h2>
+      <ul class="anime-list">
+        <li><strong>Horimiya</strong> – Cute high school romance with unexpected depth.</li>
+        <li><strong>Toradora!</strong> – Classic tsundere love story with heartwarming moments.</li>
+        <li><strong>Your Name</strong> – A beautifully animated time-twisting love story.</li>
+      </ul>
+    </section>
 
-  <h2>2. Demon Slayer</h2>
-  <p>Great action and animation. You’ll love the sibling bond!</p>
-
-  <!-- Add more here -->
+    <section class="genre">
+      <h2>🔥 Action Anime</h2>
+      <ul class="anime-list">
+        <li><strong>Attack on Titan</strong> – Dark, intense, and full of mystery.</li>
+        <li><strong>Demon Slayer</strong> – Stunning animation and heart-driven battles.</li>
+        <li><strong>Jujutsu Kaisen</strong> – High energy, cursed powers, and strong characters.</li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
