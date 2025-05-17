@@ -1,10 +1,11 @@
 .body {
   margin: 0;
-  padding-top: 100px;
+  padding: 100px 0 0 0; /* Top padding added here */
   font-family: 'Segoe UI', sans-serif;
   background: url('bg.png') no-repeat center center/cover;
   color: white;
 }
+
 
 .navbar {
   display: flex;
