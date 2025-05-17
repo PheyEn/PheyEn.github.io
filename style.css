@@ -1,23 +1,24 @@
-/* Base styles */
+/* General Styling */
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: url('bg.png') no-repeat center center/cover;
   color: white;
-  padding-top: 100px; /* Moves content down below fixed navbar */
+  background: url('bg.png') no-repeat center center/cover;
+  min-height: 100vh;
 }
 
 /* Navbar */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
-  z-index: 999;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo img {
@@ -28,9 +29,7 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
+  gap: 30px;
 }
 
 .nav-links li a {
@@ -38,6 +37,7 @@ body {
   text-decoration: none;
   font-size: 16px;
   position: relative;
+  padding: 5px;
 }
 
 .nav-links li a.active::after {
@@ -46,7 +46,7 @@ body {
   width: 100%;
   height: 2px;
   background: white;
-  bottom: -2px;
+  bottom: 0;
   left: 0;
 }
 
@@ -74,47 +74,40 @@ body {
   font-size: 16px;
 }
 
-/* Header section */
+/* Header */
 .main-header {
+  padding-top: 120px; /* Push down to avoid navbar */
   text-align: center;
-  padding: 60px 20px 30px;
+}
+
+.main-header h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
 .highlight {
   color: #ffccff;
-  font-weight: bold;
 }
 
 .subtitle {
   font-size: 18px;
   line-height: 1.6;
-  margin-top: 10px;
 }
 
-/* Cards */
+/* Cards Section */
 .cards {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  padding: 40px 20px;
-  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px;
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.6);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 10px;
   width: 250px;
   text-align: center;
-  backdrop-filter: blur(10px);
-}
-
-.card h2 {
-  margin-bottom: 10px;
-  color: #ffe6ff;
-}
-
-.card p {
-  font-size: 15px;
+  box-shadow: 0 0 10px #000;
 }
 
