@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: url('bg.png') no-repeat center center/cover;
+  background: url('images/bg.png') no-repeat center center/cover;
   color: white;
 }
 
@@ -20,8 +20,8 @@ body {
 
 .nav-links {
   list-style: none;
-  display: flex;         /* THIS makes them go in a row */
-  gap: 30px;             /* Optional: adds space between links */
+  display: flex;         
+  gap: 30px;             
   margin: 0;
   padding: 0;
 }
