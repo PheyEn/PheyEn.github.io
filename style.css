@@ -11,12 +11,20 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background: rgba(0, 0, 0, 0.4); 
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
 }
 
+.nav-links {
+  list-style: none;
+  display: flex;         /* THIS makes them go in a row */
+  gap: 30px;             /* Optional: adds space between links */
+  margin: 0;
+  padding: 0;
+}
 .logo img {
   height: 50px; 
   width: auto;
