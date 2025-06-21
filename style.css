@@ -5,8 +5,8 @@ body {
     color: white;
     background: url('bg.png') no-repeat center center/cover;
     min-height: 100vh;
-    /* Solution 1: Add padding-top to body to prevent content from going behind fixed navbar */
-    padding-top: 90px; /* Adjust this value if your navbar height changes */
+    padding-top: 90px; /* Ensure content starts below the fixed navbar */
+    box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 /* Navbar */
@@ -19,6 +19,7 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0; /* Ensure it starts from the very left edge */
     z-index: 1000;
 }
 
@@ -39,9 +40,28 @@ body {
     font-size: 16px;
     position: relative;
     padding: 5px;
+    transition: color 0.3s ease; /* Smooth transition for hover */
 }
 
+.nav-links li a:hover {
+    color: #ffccff; /* Highlight on hover */
+}
+
+/* Underline for the active link */
 .nav-links li a.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #ffccff; /* Changed to highlight color for consistency */
+    bottom: 0;
+    left: 0;
+    transform: scaleX(1); /* Ensure it's fully visible */
+    transition: transform 0.3s ease-out; /* Smooth transition for active state */
+}
+
+/* Optional: Add hover effect for the underline for non-active links */
+.nav-links li a:not(.active)::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -49,7 +69,16 @@ body {
     background: white;
     bottom: 0;
     left: 0;
+    transform: scaleX(0); /* Hidden by default */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
 }
+
+.nav-links li a:not(.active):hover::after {
+    transform: scaleX(1); /* Show on hover */
+    transform-origin: bottom left;
+}
+
 
 .search-bar {
     display: flex;
@@ -65,8 +94,8 @@ body {
     color: white;
     padding: 5px;
     outline: none;
-    /* Solution 2: Center the placeholder text */
-    text-align: center;
+    text-align: center; /* Center the placeholder text */
+    width: 150px; /* Give it a defined width for centering */
 }
 
 .search-bar button {
@@ -77,11 +106,10 @@ body {
     font-size: 16px;
 }
 
-/* Header (for index.html, retaining original adjustment) */
+/* Header (for index.html) */
 .main-header {
-    /* Removed padding-top here as it's now handled by body's padding-top */
     text-align: center;
-    padding-top: 0; /* Resetting if it was overriding body padding */
+    padding: 40px 20px; /* Add some padding to the header */
 }
 
 .main-header h1 {
@@ -96,14 +124,17 @@ body {
 .subtitle {
     font-size: 18px;
     line-height: 1.6;
+    max-width: 800px; /* Limit width for better readability */
+    margin: 0 auto; /* Center the subtitle text block */
 }
 
-/* Cards Section */
+/* Cards Section (for index.html) */
 .cards {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
     gap: 20px;
-    padding: 40px;
+    padding: 40px 20px;
 }
 
 .card {
@@ -112,26 +143,142 @@ body {
     border-radius: 10px;
     width: 250px;
     text-align: center;
-    box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
 }
 
-/* Specific styling for games.html, anime.html, contact.html content if needed */
-/* For h1 and header on other pages, their padding will now be implicitly handled by body's padding-top. */
-/* If you need more specific spacing, you can add margin-top to these elements */
+.card:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+}
+
+/* General content styling for other pages (games.html, anime.html, contact.html) */
 h1 {
-    margin-top: 20px; /* Example: Add some margin below the body padding */
-    text-align: center; /* Center the titles on these pages */
-}
-header {
-    margin-top: 20px; /* Example: Add some margin below the body padding for headers */
-    text-align: center;
-}
-main {
-    padding: 20px; /* Add some general padding to main content areas */
-}
-section {
-    padding: 20px; /* Add some general padding to sections */
+    text-align: center; /* Center main titles */
+    margin-top: 40px; /* Space from navbar */
+    margin-bottom: 20px;
+    font-size: 36px;
+    color: #ffccff; /* Match highlight color */
 }
 
+h2 {
+    color: #ffccff; /* Highlight subheadings */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+section {
+    padding: 20px 40px; /* Add padding to all sections for consistent spacing */
+    max-width: 900px; /* Limit content width for readability */
+    margin: 0 auto; /* Center the content blocks */
+    background: rgba(0, 0, 0, 0.5); /* Slightly transparent background for content sections */
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific styling for the form on contact.html */
+form {
+    display: block; /* Make form a block element */
+    width: 80%; /* Set a width */
+    max-width: 500px; /* Max width for larger screens */
+    margin: 30px auto; /* Center the form horizontally */
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.6); /* Form background */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+form label {
+    display: block; /* Make labels take full width */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ffccff;
+}
+
+form input[type="text"],
+form textarea {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 5px;
+    outline: none;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+    border-color: #ffccff;
+    box-shadow: 0 0 0 2px rgba(255, 204, 255, 0.5);
+}
+
+form button {
+    background: #ffccff; /* Button background color */
+    color: #333; /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background: #e0b3e0; /* Slightly darker on hover */
+    transform: translateY(-2px);
+}
+
+/* Ensure images and backgrounds stretch on mobile */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    .search-bar {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: center;
+    }
+    .search-bar input {
+        width: 80%;
+    }
+    .main-header h1 {
+        font-size: 32px;
+    }
+    .subtitle {
+        font-size: 16px;
+    }
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90%;
+    }
+    section {
+        padding: 15px 20px;
+    }
+    form {
+        width: 95%;
+        padding: 20px;
+    }
 }
 
