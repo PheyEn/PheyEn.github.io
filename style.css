@@ -146,22 +146,19 @@ body {
 .cards {
     display: flex;
     justify-content: center;
-    /* Removed flex-wrap to force a single row */
+    /* Allow items to shrink to fit, no horizontal scrollbar */
     gap: 20px;
     padding: 40px 20px;
-    /* Allow horizontal scrolling if necessary on very small screens, but prefer items to shrink */
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
-    white-space: nowrap; /* Keep items in a single line */
+    /* Removed overflow-x, -webkit-overflow-scrolling, white-space: nowrap */
 }
 
 .card {
     background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 10px;
-    /* Changed width to a flexible basis for single row */
-    flex: 0 0 250px; /* Do not grow, do not shrink (unless necessary), basis 250px */
-    min-width: 200px; /* Allow cards to shrink somewhat before overflow */
+    /* Changed flex property to allow shrinking */
+    flex: 0 1 250px; /* Do not grow, can shrink, preferred basis 250px */
+    min-width: 200px; /* Allow cards to shrink somewhat before becoming too small */
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
     transition: transform 0.2s ease-in-out; /* Smooth hover effect */
