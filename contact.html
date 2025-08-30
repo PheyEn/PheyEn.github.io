@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="PheyEn">
+    <meta name="description" content="Contact form for Ely's anime and game recommendations website.">
+    <meta name="theme-color" content="#4a235a">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Ely Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="games.html">Games</a></li>
+            <li><a href="anime.html">Anime</a></li>
+            <li><a href="suggest.html">Suggest</a></li>
+            <li><a href="contact.html" class="active">Contact Us</a></li>
+        </ul>
+        <div class="search-bar">
+            <input type="text" placeholder="Enter Keyword...">
+            <button type="submit">&#128269;</button>
+        </div>
+    </nav>
+
+    <h1>✉️ Contact Us</h1>
+
+    <form action="" method="post">
+        <fieldset>
+            <legend>Personal Details</legend>
+            <label for="name">Your Name: <span style="color:red;">*</span></label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address: <span style="color:red;">*</span></label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="tel">Telephone Number:</label>
+            <input type="tel" id="tel" name="tel" list="countryCodes">
+            <datalist id="countryCodes">
+                <option value="+60">
+                <option value="+61">
+                <option value="+65">
+            </datalist>
+
+            <label for="website">Website:</label>
+            <input type="url" id="website" name="website" list="websitePrefixes">
+            <datalist id="websitePrefixes">
+                <option value="http://">
+                <option value="https://">
+            </datalist>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
